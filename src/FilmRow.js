@@ -3,13 +3,11 @@ import Fave from './Fave'
 
 function FilmRow(props) {
 
-    const handleDetailsClick = (film) => {
-        console.log('fetching details for film: ', film.title)
-    }
+
 
         return (
             <div className='film-row'
-                onClick={() => handleDetailsClick(props.film)}
+                onClick={() => props.handleDetailsClick(props.film)}
             >
                 <Poster 
                     poster_path={props.film.poster_path}
@@ -21,6 +19,8 @@ function FilmRow(props) {
                     <h1>{props.film.title}</h1>
 
                     <p>{props.film.release_date.split('-')[0]}</p>
+                    {/* could also be written this way: */}
+                    {/* <p>{props.film.release_date.substring(0, 4)}</p> */}
 
                 </div>
                 <Fave 

@@ -32,14 +32,16 @@ import { useState } from 'react'
     //     )
     // }
 
+        const filmsToDisplay = filter === 'all' ? props.films : faves
 
-        const allFilms = props.films.map((film, i) => {
+        const allFilms = filmsToDisplay.map((film, i) => {
             return (
                 <FilmRow 
                     key={`filmrow${i}`}
                     film={film}
                     onFaveToggle={handleFaveToggle}
                     isFave={faves.includes(film)}
+                    handleDetailsClick={props.handleDetailsClick}
                 />
             )
         })
@@ -54,7 +56,7 @@ import { useState } from 'react'
                     </div>
                     <div className={`film-list-filter ${filter === 'faves' ? 'is-active' : ''}`} onClick={ (e) => {handleFilterClick(e, 'faves')}}>
                         FAVES
-                        <span className="section-count">0</span>
+                        <span className="section-count">{ faves.length }</span>
                     </div>
 
                 </div>
