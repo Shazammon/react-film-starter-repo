@@ -5,6 +5,7 @@ import { useState } from 'react'
  function FilmList(props) {
     const [filter, setFilter] = useState('all')
     const [faves, setFaves] = useState([])
+    const [practice, setPractice] = useState([])
     
 
 
